@@ -2,13 +2,13 @@ const express = require('express');
 const supertest = require('supertest');
 const Ajv = require('Ajv');
 
-const calendarRouter = require('../web/router/calendar-router');
+const dayRouter = require('../web/router/day-router');
 
 
 let app;
 beforeEach(() => {
   app = express();
-  calendarRouter(app);
+  dayRouter(app);
 });
 
 it('Testing root route', async () => {
@@ -20,10 +20,10 @@ it('Testing root route', async () => {
 
 it('responses with valid schema', async () => {
   const response = await supertest(app)
-    .get('/api/calendar');
+    .get('/api/day');
   const ajv = new Ajv();
 
-  const schema = require('../docs/schemas/calendar.scheme');
+  const schema = require('../docs/schemas/day.scheme');
   const validate = ajv.compile(schema);
 
   expect(validate(response.body)).toBeTruthy();

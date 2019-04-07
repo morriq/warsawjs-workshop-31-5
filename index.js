@@ -7,5 +7,6 @@ const app = express();
 
 require('./web/router/base-router')(app);
 require('./web/router/calendar-router')(app);
+require('./web/router/day-router')(app);
 
 app.listen(PORT, () => console.log(`Server start on port ${PORT}`));
