@@ -2,7 +2,8 @@
   "name": "warsawjs-workshop-31-5-calendar",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "node",
+    "dev": "nodemon"
   },
   "dependencies": {
     "express": "^4.16.4"
