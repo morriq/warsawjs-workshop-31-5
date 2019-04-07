@@ -1,21 +1,20 @@
 const { Router } = require('express');
-const dayjs = require('dayjs');
+const Event = require('../../models/Event');
 
 const router = new Router();
 
 router.get('/', (req, res, next) => {
-  res.json({
-    data: [
-      {
-        id: 'guid',
-        title: 'foo',
-        description: 'foo',
-        time: dayjs(),
-        notification: false
-      }
-    ]
+  const date = req.query.date;
+  // @todo range
+  Event.find({}, (err, data) => {
+    res.json({
+      data: data.map((v) => ({
+        ...v,
+        id: v._id
+      }))
+    });
+    next();
   });
-  next();
 });
 
 module.exports = (app) => {
