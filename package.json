@@ -1,3 +1,13 @@
 {
-  "name": "warsawjs-workshop-31-5-calendar"
+  "name": "warsawjs-workshop-31-5-calendar",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
 }
