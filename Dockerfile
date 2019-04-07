@@ -10,4 +10,5 @@ ENV PATH /opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
 
-EXPOSE 80
+CMD ["npm", "run", "dev"]
+EXPOSE 5000
