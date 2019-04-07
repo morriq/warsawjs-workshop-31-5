@@ -6,12 +6,19 @@ services:
     ports:
       - 27017:27017
 
+  mongoclient:
+    image: mongoclient/mongoclient
+    ports:
+      - 3000:3000
+
   application:
     build: .
     command: npm run dev
     ports:
       - 5000:$PORT
     environment:
+      DB_NAME: $DB_NAME
+      DB_PORT: $DB_PORT
       DB_HOST: $DB_HOST
       PORT: $PORT
     volumes:
